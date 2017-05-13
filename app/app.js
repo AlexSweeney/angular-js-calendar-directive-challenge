@@ -13,6 +13,13 @@
 
 */
 
-angular.module('calendarDemoApp', []);
+angular.module('calendarDemoApp', [])
+
+.directive('calendar', function() {
+	return {
+		restrict: 'E',
+		templateUrl: 'calendar-template.html'
+	}
+})
 
 // your controller and directive code go here
