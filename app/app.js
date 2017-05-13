@@ -12,14 +12,59 @@
 	Use Git/Github for version control.
 
 */
+(function() {
+	'use strict';
 
-angular.module('calendarDemoApp', [])
+	angular.module('calendarDemoApp', [])
+		.factory('Months', Months)
+		.run(function($rootScope, Months) {
+			var setYears = function() {
+				$rootScope.years = [];
+				var date = new Date();
+				var thisYear = date.getFullYear();
 
-.directive('calendar', function() {
-	return {
-		restrict: 'E',
-		templateUrl: 'calendar-template.html'
+				var startYear = thisYear - 20;
+				var finalYear = thisYear + 20;
+
+				for(var i=0; i<40; i++) {
+					$rootScope.years.push(startYear + i);
+				}
+
+				$rootScope.selectedYear = thisYear;
+			}
+
+			var setMonth = function() {
+				var date = new Date();
+				var thisMonth = Months[date.getMonth()];   
+
+				$rootScope.months = Months;
+				$rootScope.selectedMonth = thisMonth;
+			} 
+
+			var init = function() {
+				setYears();
+				setMonth();
+			}
+
+			init();
+
+			$rootScope.selectMonth = function(month) {
+				$rootScope.selectedMonth = month;
+			}
+
+			$rootScope.selectYear = function(year) {
+				$rootScope.selectedYear = year;
+			}
+		})
+		.directive('calendar', function(Months) {
+			return {
+				restrict: 'E',
+				templateUrl: 'calendar-template.html'
+			}
+		});
+
+	function Months() {
+		return ['Janurary', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'];
 	}
-})
 
-// your controller and directive code go here
+}());

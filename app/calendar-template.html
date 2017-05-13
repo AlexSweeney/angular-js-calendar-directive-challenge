@@ -1,17 +1,15 @@
-<div id="monthDropDown" class="dropdown">
-	<button class="btn btn-primary dropdown-toggle" type="button" data-toggle="dropdown"> Month </button>
-		<ul class="dropdown-menu">
-			<li> January </li>
-			<li> February </li>
-			<li> March </li>
-			<li> April </li>
-			<li> May </li>
-			<li> June </li>
-			<li> July </li>
-			<li> August </li>
-			<li> September </li>
-			<li> October </li>
-			<li> November </li>
-			<li> December </li>
-		</ul>
-</div> 
+<nav>
+	<div class="dropdown">
+		<button class="btn btn-primary dropdown-toggle" type="button" data-toggle="dropdown"> {{ selectedMonth }} </button>
+			<ul class="dropdown-menu">
+				<li ng-repeat="month in months" ng-click="selectMonth(month)"> {{ month }} </li> 
+			</ul>
+	</div>  
+
+	<div class="dropdown">
+		<button class="btn btn-primary dropdown-toggle" type="button" data-toggle="dropdown"> {{ selectedYear }} </button>
+			<ul class="dropdown-menu">
+				<li ng-repeat="year in years" ng-click="selectYear(year)"> {{ year }} </li>
+			</ul>
+	</div>
+</nav>
