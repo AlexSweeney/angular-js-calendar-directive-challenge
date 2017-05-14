@@ -8,11 +8,17 @@ li:hover {
 
 nav {
 	background-color: black;
+	background-color: black;
+    padding: 1em;
 }
 
 .day {
 	display: inline-block;
 	width: 14%;
+	padding: 1em;
+    font-size: 2em;
+    text-align: center;
+    border: 2px solid lightgrey;
 }
 
 .outOfRange {
