@@ -1,3 +1,16 @@
 li:hover {
 	background-color: blue;
 }
+
+.dropdown {
+	display: inline-block;
+}
+
+nav {
+	background-color: black;
+}
+
+.day {
+	display: inline-block;
+	width: 14%;
+}

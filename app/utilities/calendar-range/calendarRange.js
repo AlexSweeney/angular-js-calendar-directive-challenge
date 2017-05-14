@@ -52,5 +52,4 @@ var CalendarRange = {
       days : days
     };
   }
-
 };
