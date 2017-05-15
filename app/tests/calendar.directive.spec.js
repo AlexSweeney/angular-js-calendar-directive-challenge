@@ -2,11 +2,25 @@ describe('calendar', function() {
 
 	beforeEach(function() {
 		module('calendarDemoApp');
-		module('calendar-directive/calendar.template.html'); 
+		module('calendar-directive/calendar.template.html');  
 	}); 
 
-	beforeEach(inject(function($rootScope, $compile) {
+	beforeEach(inject(function($rootScope, $compile, _CalendarRange_) {
 		scope = $rootScope.$new(); 
+
+		year = new Date().getFullYear();
+		monthNumber = new Date().getMonth();
+		months = ['Janurary', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'];
+		month = months[monthNumber];
+
+		CalendarRange = _CalendarRange_;
+
+		range = CalendarRange.getMonthlyRange(new Date());
+		firstDay = range.firstDay;
+		startDay = range.startDay;
+		endDay = range.endDay;
+		lastDay = range.lastDay;
+		numDays = range.days.length; 
 
 		html = '<calendar></calendar>';
 		compiled = $compile(html);
@@ -15,23 +29,17 @@ describe('calendar', function() {
 	}));
 
 	it('the year button should display current year on load', function() {
-		var year = new Date().getFullYear();
-
 		expect(element.find('#yearButton').length).toBe(1); 
 		expect(element.find('#yearButton').html() ).toContain(year);  
 	});
 
 	it('the month button should display current month on load', function() {
-		var monthNumber = new Date().getMonth();
-		var months = ['Janurary', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'];
-		var month = months[monthNumber];
-
 		expect(element.find('#monthButton').length).toBe(1); 
 		expect(element.find('#monthButton').html() ).toContain(month);  
 	});
 
-	xit('should display days for current month on load', function() {
-
+	it('should display days for current month on load', function() {
+		expect(element.find('.day').length).toEqual(numDays);  
 	});
 
 	xit('year select should show choices for -20 years and +20 years from current year', function() {
