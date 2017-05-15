@@ -1,21 +1,23 @@
-<nav>
-	<div class="dropdown">
-		<button class="btn btn-primary dropdown-toggle" type="button" data-toggle="dropdown"> {{ selectedMonth }} </button>
-			<ul class="dropdown-menu">
-				<li ng-repeat="month in months" ng-click="selectMonth(month)"> {{ month }} </li> 
-			</ul>
-	</div>  
+<div id="calendar">
+	<nav>
+		<div class="dropdown">
+			<button class="btn btn-primary dropdown-toggle" type="button" data-toggle="dropdown"> {{ selectedMonth }} </button>
+				<ul class="dropdown-menu">
+					<li ng-repeat="month in months" ng-click="selectMonth(month)"> {{ month }} </li> 
+				</ul>
+		</div>  
 
-	<div class="dropdown">
-		<button class="btn btn-primary dropdown-toggle" type="button" data-toggle="dropdown"> {{ selectedYear }} </button>
-			<ul class="dropdown-menu">
-				<li ng-repeat="year in years" ng-click="selectYear(year)"> {{ year }} </li>
-			</ul>
-	</div>
-</nav>
+		<div class="dropdown">
+			<button class="btn btn-primary dropdown-toggle" type="button" data-toggle="dropdown"> {{ selectedYear }} </button>
+				<ul class="dropdown-menu">
+					<li ng-repeat="year in years" ng-click="selectYear(year)"> {{ year }} </li>
+				</ul>
+		</div>
+	</nav>
 
-<section> 
-	<div ng-repeat="dayInfo in days" class="day" ng-class='{outOfRange: returnIfOutOfRange(dayInfo.date)}'>
-		{{ dayInfo.day }}
-	</div>
-</section>
+	<section> 
+		<div ng-repeat="dayInfo in days" class="day" ng-class='{outOfRange: returnIfOutOfRange(dayInfo.date)}'>
+			{{ dayInfo.day }}
+		</div>
+	</section>
+</div>

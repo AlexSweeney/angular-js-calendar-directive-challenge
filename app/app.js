@@ -7,12 +7,12 @@
 	
 	x Any padded days from the previous/next month should be visually delineated from the days in the current month (as in the sketch above).
 
-	made directive modular 
+	x made directive modular 
+
+	x adjust css
 	
 	Once your directive is working, write unit tests for your controller(s) and directive.
 	
-	Use Git/Github for version control.
-
 	compare with thinkful version
 
 */

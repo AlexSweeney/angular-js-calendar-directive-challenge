@@ -1,18 +1,18 @@
-li:hover {
+#calendar li:hover {
 	background-color: blue;
 }
 
-.dropdown {
+#calendar .dropdown {
 	display: inline-block;
 }
 
-nav {
+#calendar nav {
 	background-color: black;
 	background-color: black;
     padding: 1em;
 }
 
-.day {
+#calendar .day {
 	display: inline-block;
 	width: 14%;
 	padding: 1em;
@@ -21,6 +21,6 @@ nav {
     border: 2px solid lightgrey;
 }
 
-.outOfRange {
+#calendar .outOfRange {
 	background-color: grey;
 }
