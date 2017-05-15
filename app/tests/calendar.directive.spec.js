@@ -15,16 +15,7 @@ describe('calendar', function() {
 
 		CalendarRange = _CalendarRange_;
 
-		range = CalendarRange.getMonthlyRange(new Date());
-		startMonth = range.start.getMonth() -1;
-		startDay = range.start.getDate();
-		firstDay = range.first.getDate();
-		
-		endMonth = range.end.getMonth() -1;
-		endDay = range.end.getDate();
-		lastDay = range.last.getDate();
-		
-		numDays = range.days.length; 
+		range = CalendarRange.getMonthlyRange(new Date()); 
 
 		html = '<calendar></calendar>';
 		compiled = $compile(html);
@@ -40,12 +31,8 @@ describe('calendar', function() {
 	it('the month button should display current month on load', function() {
 		expect(element.find('#monthButton').length).toBe(1); 
 		expect(element.find('#monthButton').html() ).toContain(month);  
-	});
-
-	it('should display days for current month on load', function() {
-		expect(element.find('.day').length).toEqual(numDays);  
-	});
-
+	}); 
+	
 	it('year select should show choices for -20 years and +20 years from current year', function() {
 		expect(element.find('#yearDropdown').find('li').length).toEqual(41);
 
@@ -78,10 +65,85 @@ describe('calendar', function() {
 	}); 
 
 	it('should display correct number of days for the month', function() {
+		// 2017
+			scope.seletedYear = 2017;
 
+		// January 
+			scope.selectMonth('January');
+			scope.$digest();
+
+			expect(element.find('.day').length ).toEqual(35); 
+
+		// February 
+			scope.selectMonth('February');
+			scope.$digest();
+
+			expect(element.find('.day').length ).toEqual(35); 
+
+		// March 
+			scope.selectMonth('March');
+			scope.$digest();
+
+			expect(element.find('.day').length ).toEqual(35); 
+
+		// April 
+			scope.selectMonth('April');
+			scope.$digest();
+
+			expect(element.find('.day').length ).toEqual(42); 
+
+		// May
+			scope.selectMonth('May');
+			scope.$digest();
+
+			expect(element.find('.day').length ).toEqual(35); 
+
+		// June 
+			scope.selectMonth('June');
+			scope.$digest();
+
+			expect(element.find('.day').length ).toEqual(35); 
+
+		// July 2017
+			scope.selectMonth('July');
+			scope.$digest();
+
+			expect(element.find('.day').length ).toEqual(42); 
+
+		// August 2017
+			scope.selectMonth('August');
+			scope.$digest();
+
+			expect(element.find('.day').length ).toEqual(35); 
+
+		// September 2017
+			scope.selectMonth('September');
+			scope.$digest();
+
+			expect(element.find('.day').length ).toEqual(35); 
+
+		// October 2017
+			scope.selectMonth('October');
+			scope.$digest();
+
+			expect(element.find('.day').length ).toEqual(35); 
+
+		// November 2017
+			scope.selectMonth('November');
+			scope.$digest();
+
+			expect(element.find('.day').length ).toEqual(35); 
+
+		// December 2017
+			scope.selectMonth('December');
+			scope.$digest();
+
+			expect(element.find('.day').length ).toEqual(42); 
 	});
 
 	it('days should start on Sunday and end on Saturday', function() {
+		expect(range.days[0].date.getDay()).toEqual(0);
+		expect(range.days[range.days.length-1].date.getDay()).toEqual(6);
 
 	});
 });

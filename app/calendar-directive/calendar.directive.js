@@ -8,7 +8,7 @@
 			restrict: 'E',
 			templateUrl: 'calendar-directive/calendar.template.html',
 			link: function(scope, element, attrs) { 
-				var months = ['Janurary', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'];
+				var months = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'];
 				
 				// utility
 					var returnMonthNumber = function(targetMonth) {
