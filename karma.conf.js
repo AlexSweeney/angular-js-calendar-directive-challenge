@@ -21,27 +21,27 @@ module.exports = function(config) {
         'bower_components/angular-mocks/angular-mocks.js',
 
         'app.js',
+
         'calendar-directive/*.js',
         'calendar-directive/*.html',
 
-        'tests/*.js',
+        'tests/*.js'
     ],
-
 
     // list of files to exclude
     exclude: [
-    ],
 
+    ],
 
     // preprocess matching files before serving them to the browser
     // available preprocessors: https://npmjs.org/browse/keyword/karma-preprocessor
-    preprocessors: {
-        'src/directive/*.html': 'ng-html2js'
+    preprocessors: {  
+        'calendar-directive/calendar.template.html': 'ng-html2js'
     },
 
     ngHtml2JsPreprocessor: {
         // strip app from the file path
-        stripPrefix: 'src/directive/'
+        stripPrefix: ''
     },
 
     // test results reporter to use

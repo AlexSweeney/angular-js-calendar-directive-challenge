@@ -5,8 +5,8 @@ describe('CalendarRange', function() {
 
         inject(function(_CalendarRange_) {
             CalendarRange = _CalendarRange_;
-        })
-    }) 
+        });
+    });
 
     beforeEach(function() {
         this.addMatchers({

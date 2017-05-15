@@ -1,14 +1,14 @@
 <div id="calendar">
 	<nav>
 		<div class="dropdown">
-			<button class="btn btn-primary dropdown-toggle" type="button" data-toggle="dropdown"> {{ selectedMonth }} </button>
+			<button class="btn btn-primary dropdown-toggle" id="monthButton" type="button" data-toggle="dropdown"> {{ selectedMonth }} </button>
 				<ul class="dropdown-menu">
 					<li ng-repeat="month in months" ng-click="selectMonth(month)"> {{ month }} </li> 
 				</ul>
 		</div>  
 
 		<div class="dropdown">
-			<button class="btn btn-primary dropdown-toggle" type="button" data-toggle="dropdown"> {{ selectedYear }} </button>
+			<button class="btn btn-primary dropdown-toggle" id="yearButton" type="button" data-toggle="dropdown"> {{ selectedYear }} </button>
 				<ul class="dropdown-menu">
 					<li ng-repeat="year in years" ng-click="selectYear(year)"> {{ year }} </li>
 				</ul>
