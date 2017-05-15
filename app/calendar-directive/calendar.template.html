@@ -16,7 +16,7 @@
 	</nav>
 
 	<section> 
-		<div ng-repeat="dayInfo in days" class="day" ng-class='{outOfRange: returnIfOutOfRange(dayInfo.date)}'>
+		<div ng-repeat="dayInfo in days" class="day" ng-class='{outOfRange: returnIfOutOfRange(dayInfo.date)}' id='day_{{ dayInfo.day }}_month_{{ dayInfo.month }}'>
 			{{ dayInfo.day }}
 		</div>
 	</section>

@@ -25,13 +25,13 @@
 						}
 					}
 
-					var retrunSelectedDate = function() {
-						var year = String(scope.selectedYear).substring(2, 4);
-						var month = returnMonthNumber(scope.selectedMonth); 
+					var returnSelectedDate = function() {
+						var year = String(scope.selectedYear);
+						var month = returnMonthNumber(scope.selectedMonth) - 1; 
 
 						var date = new Date(year, month, 1);
 						return date;
-					}
+					} 
 
 				// interact
 					scope.returnIfOutOfRange = function(date) { 
@@ -79,9 +79,9 @@
 					}
 
 					var setDays = function() {
-						var range = CalendarRange.getMonthlyRange(retrunSelectedDate() );
+						var range = CalendarRange.getMonthlyRange(returnSelectedDate() ); 
 
-						scope.days = range.days; 
+						scope.days = range.days;
 
 						scope.start = range.start;
 						scope.end = range.end;  

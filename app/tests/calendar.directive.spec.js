@@ -16,10 +16,14 @@ describe('calendar', function() {
 		CalendarRange = _CalendarRange_;
 
 		range = CalendarRange.getMonthlyRange(new Date());
-		firstDay = range.firstDay;
-		startDay = range.startDay;
-		endDay = range.endDay;
-		lastDay = range.lastDay;
+		startMonth = range.start.getMonth() -1;
+		startDay = range.start.getDate();
+		firstDay = range.first.getDate();
+		
+		endMonth = range.end.getMonth() -1;
+		endDay = range.end.getDate();
+		lastDay = range.last.getDate();
+		
 		numDays = range.days.length; 
 
 		html = '<calendar></calendar>';
@@ -47,17 +51,37 @@ describe('calendar', function() {
 
 		expect(element.find('#yearDropdown').first('li').text() ).toContain(String(year - 20));
 		expect(element.find('#yearDropdown').last('li').text() ).toContain(String(year + 20));
+	}); 
+
+	it('the days displayed should adjust when month changed', function() {
+		newMonthNumber = monthNumber + 2;
+		newMonth = months[newMonthNumber];
+		scope.selectMonth(newMonth);
+
+		scope.$digest(); 
+ 
+		newRange = CalendarRange.getMonthlyRange(new Date(year, newMonthNumber, 1))
+		numDays = newRange.days.length;   
+
+		expect(element.find('.day').length).toEqual(numDays);
+	}); 
+
+	it('days from previous month and next month should have different background color', function() { 
+		for(var i in range.days) {
+			var day = range.days[i];
+			dayId = '#day_'+String(day.day)+'_month_'+String(day.month); 
+
+			if(day.month == monthNumber -1 || day.month == monthNumber +1 ) {   
+				expect(element.find(dayId).hasClass('outOfRange')).toEqual(true); 
+			} 
+		} 
+	}); 
+
+	it('should display correct number of days for the month', function() {
+
 	});
 
-	xit('the days displayed should adjust when month changed', function() {
-
-	});
-
-	xit('the days displayed should adjust when year changed', function() {
-
-	});
-
-	xit('days from previous and next month should have different background color', function() {
+	it('days should start on Sunday and end on Saturday', function() {
 
 	});
 });
