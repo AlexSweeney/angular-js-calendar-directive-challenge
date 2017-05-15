@@ -42,8 +42,11 @@ describe('calendar', function() {
 		expect(element.find('.day').length).toEqual(numDays);  
 	});
 
-	xit('year select should show choices for -20 years and +20 years from current year', function() {
+	it('year select should show choices for -20 years and +20 years from current year', function() {
+		expect(element.find('#yearDropdown').find('li').length).toEqual(41);
 
+		expect(element.find('#yearDropdown').first('li').text() ).toContain(String(year - 20));
+		expect(element.find('#yearDropdown').last('li').text() ).toContain(String(year + 20));
 	});
 
 	xit('the days displayed should adjust when month changed', function() {

@@ -63,7 +63,7 @@
 						var startYear = thisYear - 20;
 						var finalYear = thisYear + 20;
 
-						for(var i=0; i<40; i++) {
+						for(var i=0; i<=40; i++) {
 							scope.years.push(startYear + i);
 						}
 
