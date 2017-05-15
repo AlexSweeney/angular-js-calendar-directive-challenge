@@ -1,16 +1,30 @@
 {
   "name": "calendar-starter",
   "version": "0.0.0",
-  "description": "",
   "main": "index.js",
   "scripts": {
     "test": "karma start app/utilities/calendar-range/karma.conf.js"
   },
-  "author": "",
+  "author": "Alex Sweeney <alexsweeney@live.co.uk>",
   "license": "ISC",
   "devDependencies": {
-    "karma": "^0.12.17",
+    "jasmine-core": "^2.6.1",
+    "karma": "^0.12.37",
     "karma-chrome-launcher": "^0.1.5",
-    "karma-jasmine": "^0.1.5"
-  }
+    "karma-jasmine": "^0.1.6"
+  },
+  "dependencies": {
+    "jasmine-core": "^2.6.1",
+    "karma": "^0.12.37",
+    "karma-jasmine": "^0.1.6"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/AlexSweeney/angular-js-calendar-directive-challenge.git"
+  },
+  "bugs": {
+    "url": "https://github.com/AlexSweeney/angular-js-calendar-directive-challenge/issues"
+  },
+  "homepage": "https://github.com/AlexSweeney/angular-js-calendar-directive-challenge#readme",
+  "description": ""
 }
