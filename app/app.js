@@ -13,7 +13,7 @@
 	
 	x Once your directive is working, write unit tests for your controller(s) and directive.
 	
-	compare with thinkful version 
+	x compare with thinkful version 
 */
 (function() {
 	'use strict';

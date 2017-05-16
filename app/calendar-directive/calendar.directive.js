@@ -13,7 +13,7 @@
 				// utility 
 					var returnMonthNumber = function(targetMonth) {
 						targetMonth = targetMonth.trim(); 
-						var count = 1;
+						var count = 0;
 
 						for(var i in months) {
 							var month = months[i]; 
@@ -27,10 +27,8 @@
 					}
 
 					var returnSelectedDate = function() {
-						var year = String(scope.selectedYear);
-						console.log(scope.selectedMonth);
-						var month = returnMonthNumber(scope.selectedMonth);
-						console.log(month);
+						var year = String(scope.selectedYear); 
+						var month = returnMonthNumber(scope.selectedMonth); 
 
 						var date = new Date(year, month, 1);
 						return date;
@@ -82,9 +80,7 @@
 					}
 
 					var setDays = function() { 
-						var range = CalendarRange.getMonthlyRange(returnSelectedDate() ); 
-						console.log('setDays range: ');
-						console.log(range);
+						var range = CalendarRange.getMonthlyRange(returnSelectedDate() );  
 
 						scope.days = range.days;
 
