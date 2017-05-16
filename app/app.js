@@ -11,10 +11,9 @@
 
 	x adjust css
 	
-	Once your directive is working, write unit tests for your controller(s) and directive.
+	x Once your directive is working, write unit tests for your controller(s) and directive.
 	
-	compare with thinkful version
-
+	compare with thinkful version 
 */
 (function() {
 	'use strict';

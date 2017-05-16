@@ -1,18 +1,27 @@
 <div id="calendar">
 	<nav>
-		<div class="dropdown" id="monthDropdown">
+		<select ng-model="selectedMonth" ng-change="selectMonth(selectedMonth)">
+			<option ng-repeat="month in months" ng-model="selectedMonth" ng-selected="month == selectedMonth"> {{ month }} </option>
+		</select> 
+
+		<select ng-model="selectedYear" ng-change="selectYear(selectedYear)">
+			<option ng-repeat="year in years" ng-model="selectedYear" ng-selected="year == selectedYear"> {{ year }}
+			</option>
+		</select>
+
+		<!-- <div class="dropdown" id="monthDropdown">
 			<button class="btn btn-primary dropdown-toggle" id="monthButton" type="button" data-toggle="dropdown"> {{ selectedMonth }} </button>
 				<ul class="dropdown-menu">
 					<li ng-repeat="month in months" ng-click="selectMonth(month)"> {{ month }} </li> 
 				</ul>
-		</div>  
+		</div>   -->
 
-		<div class="dropdown" id="yearDropdown">
+		<!-- <div class="dropdown" id="yearDropdown">
 			<button class="btn btn-primary dropdown-toggle" id="yearButton" type="button" data-toggle="dropdown"> {{ selectedYear }} </button>
 				<ul class="dropdown-menu">
 					<li ng-repeat="year in years" ng-click="selectYear(year)"> {{ year }} </li>
 				</ul>
-		</div>
+		</div> -->
 	</nav>
 
 	<section> 

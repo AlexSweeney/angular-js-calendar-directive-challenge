@@ -10,14 +10,15 @@
 			link: function(scope, element, attrs) { 
 				var months = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'];
 				
-				// utility
+				// utility 
 					var returnMonthNumber = function(targetMonth) {
+						targetMonth = targetMonth.trim(); 
 						var count = 1;
 
 						for(var i in months) {
-							var month = months[i];
+							var month = months[i]; 
 
-							if(month == targetMonth) {
+							if(month == targetMonth) { 
 								return count;
 							} else {
 								count ++;
@@ -27,13 +28,15 @@
 
 					var returnSelectedDate = function() {
 						var year = String(scope.selectedYear);
-						var month = returnMonthNumber(scope.selectedMonth) - 1; 
+						console.log(scope.selectedMonth);
+						var month = returnMonthNumber(scope.selectedMonth);
+						console.log(month);
 
 						var date = new Date(year, month, 1);
 						return date;
 					} 
 
-				// interact
+				// interact 
 					scope.returnIfOutOfRange = function(date) { 
 						if(date < scope.start || date > scope.end ) { 
 							return true;
@@ -42,7 +45,7 @@
 						}
 					} 
 
-					scope.selectMonth = function(month) {
+					scope.selectMonth = function(month) { 
 						scope.selectedMonth = month;
 
 						setDays();
@@ -78,19 +81,21 @@
 						scope.selectedMonth = thisMonth;
 					}
 
-					var setDays = function() {
+					var setDays = function() { 
 						var range = CalendarRange.getMonthlyRange(returnSelectedDate() ); 
+						console.log('setDays range: ');
+						console.log(range);
 
 						scope.days = range.days;
 
 						scope.start = range.start;
 						scope.end = range.end;  
-					} 
+					}  
 
 					var init = function() {
 						setYears();
 						setMonth();
-						setDays();
+						setDays();  
 					}();
 			}
 		}

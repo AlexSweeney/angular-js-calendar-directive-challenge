@@ -32,7 +32,7 @@ describe('calendar', function() {
 		expect(element.find('#monthButton').length).toBe(1); 
 		expect(element.find('#monthButton').html() ).toContain(month);  
 	}); 
-	
+
 	it('year select should show choices for -20 years and +20 years from current year', function() {
 		expect(element.find('#yearDropdown').find('li').length).toEqual(41);
 
@@ -144,6 +144,5 @@ describe('calendar', function() {
 	it('days should start on Sunday and end on Saturday', function() {
 		expect(range.days[0].date.getDay()).toEqual(0);
 		expect(range.days[range.days.length-1].date.getDay()).toEqual(6);
-
 	});
 });
