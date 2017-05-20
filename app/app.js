@@ -18,5 +18,5 @@
 (function() {
 	'use strict';
 
-	angular.module('calendarDemoApp', []) 
+	angular.module('calendarDemoApp', []);
 }());
